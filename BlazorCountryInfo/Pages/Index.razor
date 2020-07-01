@@ -1,0 +1,15 @@
+﻿@page "/"
+
+<div class="search-section">
+    <h1>Search for country infos</h1>
+    <form>
+        <input class="search-field"
+               placeholder="Search..."
+               type="text"
+               asp-for="SearchTerm" />
+        <input class="search-btn"
+               value="Search"
+               type="submit"
+               asp-page-handler="Search" />
+    </form>
+</div>
