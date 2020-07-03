@@ -1,0 +1,9 @@
+﻿<div class="data-card">
+    <h2>@Country.Name</h2>
+    <div>Population: @Country.Population</div>
+    <div>Currency: @Country.Currencies[0]["code"]</div>
+</div>
+
+@code {
+    [Parameter] public CountryModel Country { get; set; }
+}

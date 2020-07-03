@@ -1,15 +1,46 @@
 ﻿@page "/"
 
+@using Newtonsoft.Json
+@inject HttpClient HttpClient
+
 <div class="search-section">
     <h1>Search for country infos</h1>
-    <form>
+    <div class="search-bar-wrapper">
         <input class="search-field"
                placeholder="Search..."
                type="text"
-               asp-for="SearchTerm" />
+               @bind-value="SearchTerm" />
         <input class="search-btn"
                value="Search"
                type="submit"
-               asp-page-handler="Search" />
-    </form>
+               @onclick="(() => GetData()" />
+    </div>
 </div>
+<div class="data-cards-wrapper">
+    @foreach (var country in SearchedCountries)
+    {
+        <ResultBox Country="country" />
+    }
+</div>
+
+@code {
+    public List<CountryModel> SearchedCountries { get; set; } = new List<CountryModel>();
+
+    public string SearchTerm { get; set; }
+
+    public async Task GetData()
+    {
+        string uriString = $"https://restcountries.eu/rest/v2/name/{ SearchTerm }?fullText=true&fields=name;currencies;population";
+
+        Uri uri = new Uri(uriString);
+
+        var result = await HttpClient.GetAsync(uri);
+        var jsonString = await result.Content.ReadAsStringAsync();
+        result.Dispose();
+        SearchedCountries.Add(JsonConvert.DeserializeObject<List<CountryModel>>(jsonString)[0]);
+    }
+}
+
+
+
+
