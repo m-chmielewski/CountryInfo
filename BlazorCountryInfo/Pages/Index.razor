@@ -3,6 +3,7 @@
 @using Newtonsoft.Json
 @inject HttpClient HttpClient
 
+<CustomizeToolbox />
 <div class="search-section">
     <h1>Search for country infos</h1>
     <div class="search-bar-wrapper">
@@ -25,19 +26,18 @@
 
 @code {
     public List<CountryModel> SearchedCountries { get; set; } = new List<CountryModel>();
-
     public string SearchTerm { get; set; }
 
     public async Task GetData()
     {
-        string uriString = $"https://restcountries.eu/rest/v2/name/{ SearchTerm }?fullText=true&fields=name;currencies;population";
+        string uriString = $"https://restcountries.eu/rest/v2/name/{ SearchTerm }?fullText=true&fields=name;currencies;population;alpha2Code";
 
         Uri uri = new Uri(uriString);
 
         var result = await HttpClient.GetAsync(uri);
         var jsonString = await result.Content.ReadAsStringAsync();
         result.Dispose();
-        SearchedCountries.Add(JsonConvert.DeserializeObject<List<CountryModel>>(jsonString)[0]);
+        SearchedCountries.Insert(0, JsonConvert.DeserializeObject<List<CountryModel>>(jsonString)[0]);
     }
 }
 

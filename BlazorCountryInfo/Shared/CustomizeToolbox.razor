@@ -1,0 +1,10 @@
+﻿<div class="customize-container">
+    <button class="customize-btn" @onclick="(() => InCustomizationMode = !InCustomizationMode)">Customize</button>
+    <div class="filters-wrapper" style="display: @(InCustomizationMode ? "flex" : "none")">
+
+    </div>
+</div>
+
+@code {
+    public bool InCustomizationMode { get; set; }
+}

@@ -21,7 +21,7 @@
 
 html {
   background-color: #ffffff;
-  color: #555372;
+  color: #55537247;
   font-family: "Lato", "Arial", sans-serif;
   font-size: 20px;
   font-weight: 300;
@@ -70,7 +70,7 @@ h2 {
   position: fixed;
   overflow: hidden;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.98);
+  background-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 2px 2px #efefef;
 }
 
@@ -102,11 +102,42 @@ h2 {
   }
 
 /*---SEARCH SECTION---*/
+.customize-container {
+  display: inline-block;
+  position: absolute;
+  top: 10vh;
+  left: 7vw;
+  width: 200px;
+  height: 200px;
+  z-index: 1;
+}
+
+.customize-btn {
+  height: 38px;
+  width: 100px;
+  color: #6eacc2;
+  background-color: #fff;
+  border: 1.5px solid #6eacc2;
+  font-family: "Lato";
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 19px;
+}
+
+.filters-wrapper {
+  width: 200px;
+  height: 100px;
+  background-color: lightcyan;
+}
 
 .search-section {
+  position: absolute;
+  top: 30vh;
   display: flex;
-  margin: 30vh 7vw 0 7vw;
+  margin: 0 7vw;
   height: 20vh;
+  width: 86vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -146,22 +177,44 @@ h2 {
 }
 
 .data-cards-wrapper {
+  position: absolute;
+  top: 50vh;
+  width: 86vw;
+  margin: 0 7vw;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  margin: 0 7vw;
-  height: 40vh
+  align-content: flex-start;
 }
 
 .data-card {
   width: 200px;
   height: 100px;
-  margin: 0 5px;
+  margin: 0 5px 5px 5px;
   font-size: 14px;
   border-radius: 20px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.data-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 20px;
+  width: 100%;
+  margin: 3px 0;
+}
+
+  .data-card-header img {
+    height: 100%;
+    width: 25px;
+    margin-left: 5px;
+  }
+
+.data-card div {
+  text-indent: 10px;
 }
 
 /*---SEARCH RESULTS---*/
