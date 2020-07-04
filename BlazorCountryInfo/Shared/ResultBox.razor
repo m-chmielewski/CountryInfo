@@ -1,10 +1,18 @@
-﻿<div class="data-card">
+﻿@inject PresentationClient PresentationClient
+
+<div class="data-card">
     <div class="data-card-header">
         <h2>@Country.Name</h2>
         <img src=@Country.Flag>
     </div>
     <div>Population: @Country.Population</div>
     <div>Currency: @Country.Currencies[0]["code"]</div>
+    <div>Domain: @Country.TopLevelDomain[0]</div>
+    <div>Calling Code: @Country.CallingCodes[0]</div>
+    <div>Capital: @Country.Capital</div>
+    <div>Time Zone: @Country.TimeZones[0]</div>
+    <div>Region: @Country.Subregion</div>
+    <div>Native Name: @Country.NativeName</div>
 </div>
 
 @code {

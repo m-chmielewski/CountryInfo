@@ -1,10 +1,28 @@
 ﻿<div class="customize-container">
-    <button class="customize-btn" @onclick="(() => InCustomizationMode = !InCustomizationMode)">Customize</button>
+    <button class="@(InCustomizationMode ? "customize-btn-disabled" : "customize-btn")" @onclick="(() => InCustomizationMode = !InCustomizationMode)" disabled="@InCustomizationMode">Customize</button>
     <div class="filters-wrapper" style="display: @(InCustomizationMode ? "flex" : "none")">
-
+        @foreach (var field in Constants.FIELDS.Keys)
+        {
+            <div class="checkbox-wrapper">
+                <input type="checkbox" />
+                <div>@Constants.FIELDS[field]</div>
+            </div>
+        }
+        <button class="customize-dialog-btn" style="color: #DE5A41" @onclick="(() => DiscardCustomization())">Discard</button>
+        <button class="customize-dialog-btn" style="color: #30A357" @onclick="(() => ApplyCustomization())">Apply</button>
     </div>
 </div>
 
 @code {
     public bool InCustomizationMode { get; set; }
+
+    public void DiscardCustomization()
+    {
+        InCustomizationMode = false;
+    }
+
+    public void ApplyCustomization()
+    {
+        InCustomizationMode = false;
+    }
 }
