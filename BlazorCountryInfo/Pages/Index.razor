@@ -9,7 +9,8 @@
         <input class="search-field"
                placeholder="Search..."
                type="text"
-               @bind-value="SearchTerm" />
+               @bind-value="SearchTerm"
+               @onkeyup="EnterDown" />
         <input class="search-btn"
                value="Search"
                type="submit"
@@ -24,7 +25,10 @@
 </div>
 
 @code {
-    public List<CountryModel> SearchedCountries { get; set; } = new List<CountryModel>();
+    public List<CountryModel>
+    SearchedCountries
+    { get; set; } = new List<CountryModel>
+        ();
     public string SearchTerm { get; set; }
 
     public async Task GetData()
@@ -37,8 +41,17 @@
         var jsonString = await result.Content.ReadAsStringAsync();
         result.Dispose();
         SearchedCountries.Insert(0, JsonConvert.DeserializeObject<List<CountryModel>>(jsonString)[0]);
+        SearchTerm = "";
+        StateHasChanged();
+    }
+
+    public async Task EnterDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+            await GetData();
     }
 }
+
 
 
 

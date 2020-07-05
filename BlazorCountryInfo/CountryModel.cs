@@ -16,6 +16,20 @@ namespace BlazorCountryInfo
     public string Subregion { get; set; }
     public string NativeName { get; set; }
 
+    public string FormattedPopulation
+    {
+      get
+      {
+        if (Population > 1000000000) //Billion
+          return $"{ Population / 1000000000:F3} B";
+
+        if (Population > 1000000) //Milion
+          return $"{ Population / 1000000:F3} M";
+
+        return $"{ Population / 1000 } k";
+      }
+    }
+
     public string Flag
     {
       get

@@ -5,14 +5,30 @@
         <h2>@Country.Name</h2>
         <img src=@Country.Flag>
     </div>
-    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Population]))">Population: @Country.Population</div>
-    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Currencies]))">Currency: @Country.Currencies[0]["code"]</div>
-    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Domain]))">Domain: @Country.TopLevelDomain[0]</div>
-    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.CallingCode]))">Calling Code: @Country.CallingCodes[0]</div>
-    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Capital]))">Capital: @Country.Capital</div>
-    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.TimeZones]))">Time Zone: @Country.TimeZones[0]</div>
-    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Region]))">Region: @Country.Subregion</div>
-    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.NativeName]))">Native Name: @Country.NativeName</div>
+    <div class="data-entry-wrapper" style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Population]))">
+        <MatIcon class="mat-icon" Icon="people" />Population: @Country.FormattedPopulation
+    </div>
+    <div class="data-entry-wrapper" style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Currencies]))">
+        <MatIcon class="mat-icon" Icon="attach_money" />Currency: @Country.Currencies[0]["code"] @Country.Currencies[0]["symbol"]
+    </div>
+    <div class="data-entry-wrapper" style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Domain]))">
+        <MatIcon class="mat-icon" Icon="web" />Domain: @Country.TopLevelDomain[0]
+    </div>
+    <div class="data-entry-wrapper" style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.CallingCode]))">
+        <MatIcon class="mat-icon" Icon="phone" />Calling Code: +@Country.CallingCodes[0]
+    </div>
+    <div class="data-entry-wrapper" style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Capital]))">
+        <MatIcon class="mat-icon" Icon="location_city" />Capital: @Country.Capital
+    </div>
+    <div class="data-entry-wrapper" style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.TimeZones]))">
+        <MatIcon class="mat-icon" Icon="access_time" />Time Zone: @Country.TimeZones[0]
+    </div>
+    <div class="data-entry-wrapper" style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Region]))">
+        <MatIcon class="mat-icon" Icon="map" />Region: @Country.Subregion
+    </div>
+    <div class="data-entry-wrapper" style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.NativeName]))">
+        <MatIcon class="mat-icon" Icon="translate" />Native Name: @Country.NativeName
+    </div>
 </div>
 
 @code {
