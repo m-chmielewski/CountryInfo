@@ -5,14 +5,14 @@
         <h2>@Country.Name</h2>
         <img src=@Country.Flag>
     </div>
-    <div>Population: @Country.Population</div>
-    <div>Currency: @Country.Currencies[0]["code"]</div>
-    <div>Domain: @Country.TopLevelDomain[0]</div>
-    <div>Calling Code: @Country.CallingCodes[0]</div>
-    <div>Capital: @Country.Capital</div>
-    <div>Time Zone: @Country.TimeZones[0]</div>
-    <div>Region: @Country.Subregion</div>
-    <div>Native Name: @Country.NativeName</div>
+    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Population]))">Population: @Country.Population</div>
+    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Currencies]))">Currency: @Country.Currencies[0]["code"]</div>
+    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Domain]))">Domain: @Country.TopLevelDomain[0]</div>
+    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.CallingCode]))">Calling Code: @Country.CallingCodes[0]</div>
+    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Capital]))">Capital: @Country.Capital</div>
+    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.TimeZones]))">Time Zone: @Country.TimeZones[0]</div>
+    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.Region]))">Region: @Country.Subregion</div>
+    <div style="display: @(PresentationClient.GetDisplayParameter(PresentationClient.FieldsToPresent[ApiFieldNames.NativeName]))">Native Name: @Country.NativeName</div>
 </div>
 
 @code {

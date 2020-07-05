@@ -1,10 +1,12 @@
-﻿<div class="customize-container">
+﻿@inject PresentationClient PresentationClient
+
+<div class="customize-container">
     <button class="@(InCustomizationMode ? "customize-btn-disabled" : "customize-btn")" @onclick="(() => InCustomizationMode = !InCustomizationMode)" disabled="@InCustomizationMode">Customize</button>
     <div class="filters-wrapper" style="display: @(InCustomizationMode ? "flex" : "none")">
         @foreach (var field in Constants.FIELDS.Keys)
         {
             <div class="checkbox-wrapper">
-                <input type="checkbox" />
+                <input type="checkbox" @bind="PresentationClient.FieldsToPresent[field]" @bind:event="oninput" @onchange="OnFilterClick" />
                 <div>@Constants.FIELDS[field]</div>
             </div>
         }
@@ -14,6 +16,10 @@
 </div>
 
 @code {
+    //You have to add callbacks that will let index know to update view when checkbox is clicked
+    [Parameter]
+    public EventCallback OnFilterClick { get; set; }
+
     public bool InCustomizationMode { get; set; }
 
     public void DiscardCustomization()
@@ -23,6 +29,7 @@
 
     public void ApplyCustomization()
     {
+        StateHasChanged();
         InCustomizationMode = false;
     }
 }

@@ -2,9 +2,9 @@
 
 @inject HttpClient HttpClient
 
-<CustomizeToolbox />
+<CustomizeToolbox OnFilterClick="@StateHasChanged" />
 <div class="search-section">
-    <h1>Search for country infos</h1>
+    <h1>Search for country information</h1>
     <div class="search-bar-wrapper">
         <input class="search-field"
                placeholder="Search..."
