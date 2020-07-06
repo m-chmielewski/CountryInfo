@@ -117,7 +117,7 @@ h2 {
   width: 100px;
   color: #6eacc2;
   background-color: #fff;
-  border: 1.5px solid #6eacc2;
+  border: 1px solid #6eacc2;
   font-family: "Lato";
   font-size: 16px;
   font-weight: 300;
@@ -142,14 +142,30 @@ h2 {
   width: 200px;
   height: 100px;
   margin-top: 10px;
-  padding: 5px;
+  padding: 6px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: flex-start;
   border-radius: 10px;
-  border: 1.5px solid #6eacc2;
+  /*border: 1px solid #6eacc2;*/
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: opacity 2s;
+}
+
+.fadein {
+  animation: fade .5s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .checkbox-wrapper {
@@ -197,10 +213,6 @@ h2 {
   text-indent: 20px;
 }
 
-  .search-field:focus {
-    outline: none;
-  }
-
 .search-btn {
   height: 38px;
   width: 100px;
@@ -215,11 +227,15 @@ h2 {
   border-radius: 19px;
 }
 
+button:focus, input:focus {
+  outline: none;
+}
+
 .data-cards-wrapper {
   position: absolute;
   top: 50vh;
   width: 86vw;
-  margin: 0 7vw;
+  margin: 15px 7vw 0 7vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -265,7 +281,7 @@ h2 {
 }
 
 .mat-icon {
-  color: #b6d5e0;
+  color: #6eacc2;
   font-size: 21px !important;
   margin-right: 2px;
   vertical-align: top;

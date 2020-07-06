@@ -13,7 +13,7 @@ namespace BlazorCountryInfo
       { "population", "Population" },
       { "timezones", "Time Zone" },
       { "currencies", "Currency" },
-      { "subregion", "Continent" },
+      { "subregion", "Region" },
       { "nativeName", "Native Name" }
     };
   }

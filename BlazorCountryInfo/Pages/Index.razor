@@ -26,9 +26,10 @@
 
 @code {
     public List<CountryModel>
-    SearchedCountries
+      SearchedCountries
     { get; set; } = new List<CountryModel>
-        ();
+          ();
+
     public string SearchTerm { get; set; }
 
     public async Task GetData()

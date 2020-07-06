@@ -2,7 +2,7 @@
 
 <div class="customize-container">
     <button class="@(InCustomizationMode ? "customize-btn-disabled" : "customize-btn")" @onclick="(() => InCustomizationMode = !InCustomizationMode)">Customize</button> <!--disabled="@InCustomizationMode"-->
-    <div class="filters-wrapper" style="display: @(InCustomizationMode ? "flex" : "none")">
+    <div class="filters-wrapper @(InCustomizationMode ? "fadein" : "fadein")" style="display: @(InCustomizationMode ? "flex" : "none")">
         @foreach (var field in Constants.FIELDS.Keys)
         {
             <div class="checkbox-wrapper">
