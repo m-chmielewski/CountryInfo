@@ -18,4 +18,5 @@ Main purpose of the app is to represent basic country data downloaded from [REST
 - Better data presentation:
   - In form of cells
   - Not plain text
-- Movable data cards
+- Draggable data cards
+- Sugestions during typing
