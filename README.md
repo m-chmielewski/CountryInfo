@@ -20,3 +20,4 @@ Main purpose of the app is to represent basic country data downloaded from [REST
   - Not plain text
 - Draggable data cards
 - Sugestions during typing
+- Change flag source
