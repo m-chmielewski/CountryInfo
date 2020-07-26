@@ -1,6 +1,6 @@
 # CountryInfo
 ##### Blazor WebAssembly application
-Main purpose of the app is to represent basic country data downloaded from [REST Countries](https://restcountries.eu) API.
+Simple UI for [REST Countries](https://restcountries.eu) API.
 ## ToDo
 - Animations for appearing elements
 - More customization:
